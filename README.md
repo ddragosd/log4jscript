@@ -32,9 +32,12 @@ Loggers can be assigned logging levels:
 * `log.impl.Level.ERROR`
 * `log.impl.Level.FATAL`
 
-The `Appender` is the one that acually writes the log somewhere; either on Browser's Javascript Console or to a server through Ajax.
+The `Appender` is an output destination. Log4JScript implements 2 Appenders:
 
-And the `Layout` it responsible to create a log line from a log message. 
+* `log.appender.ConsoleAppender` - writing the ouput into Browser's Console. Basically it's calling `window.console.log() / info() / debug() / warn()`
+* `log.appender.AjaxAppender` - sending to a given endpoint a formData with the follosing properties: `formatterLogMessage`, `categoryName`, `level`, `message`, `exception`.
+
+The `Layout` it responsible to create a log line from a given log message. 
 
 There are 2 layout classes implemented at the moment, and you can also add your own:
 
