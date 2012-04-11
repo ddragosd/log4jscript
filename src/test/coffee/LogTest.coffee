@@ -1,4 +1,8 @@
 TestCase("LogTest", {
+   testGetLogger: ->
+    l = Log.getLogger("a")
+    assertInstanceOf( log.impl.Logger, l)
+
    testGetLoggerReturnsDifferentInstance: ->
     l = Log.getLogger("a")
     assertNotNull(l)
