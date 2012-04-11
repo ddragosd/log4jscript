@@ -10,7 +10,7 @@ And because we live in modern times, I've choosen a modern language to do my job
 ## Using Log4JScript
 
     var log = Log.getLogger("myApp")
-    log.setLevel( log.impl.Level.DEBUG )
+    log.setLevel( log.Level.DEBUG )
     log.addAppender( new log.appender.ConsoleAppender( new log.layout.MessageLayout() ) )
 
     log.debug("Hello World !")
@@ -26,11 +26,11 @@ There are 3 main components of Log4JScript, the same as the ones in Log4J: `logg
 The `Logger` class is the one which you'll be using to ... log the information, ofcourse.
 Loggers can be assigned logging levels:
 
-* `log.impl.Level.DEBUG`
-* `log.impl.Level.INFO`
-* `log.impl.Level.WARN`
-* `log.impl.Level.ERROR`
-* `log.impl.Level.FATAL`
+* `log.Level.DEBUG`
+* `log.Level.INFO`
+* `log.Level.WARN`
+* `log.Level.ERROR`
+* `log.Level.FATAL`
 
 The `Appender` is an output destination. Log4JScript implements 2 Appenders:
 
