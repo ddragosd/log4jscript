@@ -1,7 +1,28 @@
 TestCase("LoggerTest", {
     log : null
+
     setUp: ->
         @log = new log.impl.Logger( "a" )
+
+    testInitialization: ->
+        assertNotNull( @log.appenders )
+        assertEquals( "a" , @log.name )
+
+    testAddAppenderTwice: ->
+        assertEquals(0, @log.appenders.length )
+        appender = new log.appender.ConsoleAppender()
+        @log.addAppender( appender )
+        assertEquals("appender should have been added", 1, @log.appenders.length )
+        @log.addAppender( appender )
+        assertEquals("same appender shouldn't be duplicated", 1, @log.appenders.length )
+
+    testSetAppenders: ->
+        appenders = [new log.appender.ConsoleAppender()]
+        @log.setAppenders([])
+        assertEquals(0, @log.appenders.length )
+        @log.setAppenders( appenders )
+        assertEquals(1, @log.appenders.length )
+
 
     testDEBUG: ->
         @log.setLevel( log.impl.Level.DEBUG )
@@ -10,6 +31,7 @@ TestCase("LoggerTest", {
         assertTrue( @log.isWarnEnabled() )
         assertTrue( @log.isErrorEnabled() )
         assertTrue( @log.isFatalEnabled() )
+
 
     testINFO: ->
         @log.setLevel( log.impl.Level.INFO )

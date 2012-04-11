@@ -1,11 +1,24 @@
 namespace "log.impl"
 
 class log.impl.Logger
+  name : null
   level: null # instanceOf log.impl.Level
+  appenders : [] # array with AbstractAppender objects
 
   constructor: ( @name ) ->
 
   setLevel: ( @level ) ->
+
+  addAppender: ( appender ) ->
+    @appenders.push( appender ) if not @appenderExists( appender )
+
+  appenderExists: ( appender ) ->
+    for a in @appenders
+        return true if appender is a
+    return false
+
+  setAppenders: ( appendersList ) ->
+    @appenders = appendersList
 
   isTraceEnabled: ->
     return true if @level.valueOf() <= log.impl.Level.TRACE.valueOf()
@@ -32,6 +45,7 @@ class log.impl.Logger
     return false
 
   log: ( level, msg, exception ) ->
+    appender.doAppend( new log.impl.LogginEvent( @name, level, msg, exception, @) ) for appender in @appenders
 
   trace: ( msg ) ->
     log( log.impl.Level.TRACE, msg, null ) if @isTraceEnabled()
