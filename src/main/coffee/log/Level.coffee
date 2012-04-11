@@ -1,6 +1,6 @@
 namespace "log.impl"
 
-class log.impl.Level
+class log.Level
     level: null
     levelStr : null
 
