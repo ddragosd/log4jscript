@@ -44,6 +44,13 @@ There are 2 layout classes implemented at the moment, and you can also add your 
 * `SimpleLayout` - writing lines like `DEBUG - Hello World!`
 * `MessageLayout` - writing only the message itself `Hello World!`
 
+## Advantages
+
+Using a Log4J implementation instead of `window.console` has a few advantages:
+
+* You can turn off some logs when you deploy in production with a single line of code: `log.setLevel( log.Level.WARN )` for instance.
+* You can log performance info and usage metrics of your application by using the `AjaxAppender`, saving this information on a server.
+
 ## Links and resources
 
 * [Log4J Manual](http://logging.apache.org/log4j/1.2/manual.html)
