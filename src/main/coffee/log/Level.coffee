@@ -1,4 +1,4 @@
-namespace "log.impl"
+namespace "log"
 
 class log.Level
     level: null

@@ -25,7 +25,7 @@ TestCase("LoggerTest", {
 
 
     testDEBUG: ->
-        @log.setLevel( log.impl.Level.DEBUG )
+        @log.setLevel( log.Level.DEBUG )
         assertTrue( @log.isDebugEnabled() )
         assertTrue( @log.isInfoEnabled() )
         assertTrue( @log.isWarnEnabled() )
@@ -34,7 +34,7 @@ TestCase("LoggerTest", {
 
 
     testINFO: ->
-        @log.setLevel( log.impl.Level.INFO )
+        @log.setLevel( log.Level.INFO )
         assertFalse( @log.isDebugEnabled() )
         assertTrue( @log.isInfoEnabled() )
         assertTrue( @log.isWarnEnabled() )
@@ -42,7 +42,7 @@ TestCase("LoggerTest", {
         assertTrue( @log.isFatalEnabled() )
 
     testWARN: ->
-        @log.setLevel( log.impl.Level.WARN )
+        @log.setLevel( log.Level.WARN )
         assertFalse( @log.isDebugEnabled() )
         assertFalse( @log.isInfoEnabled() )
         assertTrue( @log.isWarnEnabled() )
@@ -50,7 +50,7 @@ TestCase("LoggerTest", {
         assertTrue( @log.isFatalEnabled() )
 
     testERROR: ->
-        @log.setLevel( log.impl.Level.ERROR )
+        @log.setLevel( log.Level.ERROR )
         assertFalse( @log.isDebugEnabled() )
         assertFalse( @log.isInfoEnabled() )
         assertFalse( @log.isWarnEnabled() )
@@ -58,7 +58,7 @@ TestCase("LoggerTest", {
         assertTrue( @log.isFatalEnabled() )
 
     testFATAL: ->
-        @log.setLevel( log.impl.Level.FATAL )
+        @log.setLevel( log.Level.FATAL )
         assertFalse( @log.isDebugEnabled() )
         assertFalse( @log.isInfoEnabled() )
         assertFalse( @log.isWarnEnabled() )
