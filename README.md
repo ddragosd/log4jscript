@@ -13,13 +13,13 @@ Log4JScript is licensed under [Apache License 2.0](http://www.apache.org/license
 
 ## Using Log4JScript
 
-    var log = Log.getLogger("myApp")
-    log.setLevel( log.Level.DEBUG )
-    log.addAppender( new log.appender.ConsoleAppender( new log.layout.MessageLayout() ) )
+    var logger = Log.getLogger("myApp")
+    logger.setLevel( log.Level.DEBUG )
+    logger.addAppender( new log.appender.ConsoleAppender( new log.layout.MessageLayout() ) )
 
-    log.debug("Hello World !")
-    log.warn("Save the planet !")
-    log.error("Use an electric car.")
+    logger.debug("Hello World !")
+    logger.warn("Save the planet !")
+    logger.error("Use an electric car.")
     
 
 
