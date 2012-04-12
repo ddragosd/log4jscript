@@ -1,4 +1,4 @@
-namespace "log.layout"
+namespace "Log4J.layout"
 
 ###
    SimpleLayout consists of the level of the log statement,
@@ -8,6 +8,6 @@ namespace "log.layout"
            DEBUG - Hello world
    </pre>
  ###
-class log.layout.SimpleLayout extends log.layout.AbstractLayout
+class Log4J.layout.SimpleLayout extends Log4J.layout.AbstractLayout
     format: (loggingEvent) ->
         return "#{loggingEvent.level.toString()} - #{loggingEvent.message}"

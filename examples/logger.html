@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log4JScript Demo Page</title>
+
+    <script type="text/javascript" src="../target/coffee/js/log4jscript/log4jscript-1.0-SNAPSHOT.js"></script>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+</head>
+
+<body>
+    <script>
+        var log = Log4J.Log.getLogger("myApp");
+        log.setLevel( Log4J.Level.TRACE );
+        log.addAppender( new Log4J.appender.ConsoleAppender( new Log4J.layout.MessageLayout() ) );
+
+        log.debug("Hello World !");
+        log.warn("Save the planet !");
+        log.error("Use an electric car.", new Error("don't use another car"));
+
+    </script>
+    <fieldset>
+        <legend>Window Console Logging</legend>
+            <a name="windowMessage"></a>
+            <input onchange="log.trace(document.getElementById('windowMessage').value);" type="text" value="add windowLog message" id="windowMessage">
+            <input name="trace" onclick="log.trace(document.getElementById('windowMessage').value);" type="button" value="Trace Message">
+            <br>
+            <input name="trace" onclick="log.trace('I was traced!');return false;" type="button" value="Trace" class="btn">
+            <input name="debug" onclick="log.debug('I was debuged!');return false;" type="button" value="Debug" class="btn btn-primary">
+            <input name="info" onclick="log.info('I was infoed!');return false;" type="button" value="Info" class="btn btn-info">
+            <input name="warn" onclick="log.warn('I was warned!');return false;" type="button" value="Warn" class="btn btn-warning">
+            <input name="error" onclick="log.error('I was errored!');return false;" type="button" value="Error" class="btn btn-danger">
+            <input name="fatal" onclick="log.fatal('I was fataled!');return false;" type="button" value="Fatal" class="btn btn-inverse"> &nbsp;&nbsp;
+    </fieldset>
+</body>
+</html>

@@ -5,7 +5,7 @@ I found implementations with custom console windows, multiple color, rich capabi
 
 Because I wanted something very light and simple, I've created yet another port of Log4J in Javascript.
 
-And because we live in modern times, I've choosen a modern language to do my job and that is: [CoffeeScript](http://coffeescript.org)
+And because we live in modern times, I've chosen a modern language to do my job and that is: [CoffeeScript](http://coffeescript.org)
 
 ### License
 
@@ -13,15 +13,14 @@ Log4JScript is licensed under [Apache License 2.0](http://www.apache.org/license
 
 ## Using Log4JScript
 
-    var logger = Log.getLogger("myApp")
-    logger.setLevel( log.Level.DEBUG )
-    logger.addAppender( new log.appender.ConsoleAppender( new log.layout.MessageLayout() ) )
+    var log = Log4J.Log.getLogger("myApp");
+    log.setLevel( Log4J.Level.TRACE );
+    log.addAppender( new Log4J.appender.ConsoleAppender( new Log4J.layout.MessageLayout() ) );
 
-    logger.debug("Hello World !")
-    logger.warn("Save the planet !")
-    logger.error("Use an electric car.")
+    logger.debug("Hello World !");
+    logger.warn("Save the planet !");
+    logger.error("Use an electric car.", new Error("don't use another car"));
     
-
 
 ## Loggers, Appenders, and Layouts
 

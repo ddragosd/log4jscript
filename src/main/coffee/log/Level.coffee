@@ -1,6 +1,6 @@
-namespace "log"
+namespace "Log4J"
 
-class log.Level
+class Log4J.Level
     level: null
     levelStr : null
 

@@ -1,23 +1,30 @@
 TestCase("LoggerTest", {
     log : null
+    bufferedAppender: {
+        events: []
+        doAppend: ( loggingEvent) ->
+            @events.push( loggingEvent )
+    }
 
     setUp: ->
-        @log = new log.impl.Logger( "a" )
+        @log = new Log4J.impl.Logger( "a" )
+        @log.addAppender( @bufferedAppender )
 
     testInitialization: ->
         assertNotNull( @log.appenders )
         assertEquals( "a" , @log.name )
 
     testAddAppenderTwice: ->
+        @log.setAppenders([])
         assertEquals(0, @log.appenders.length )
-        appender = new log.appender.ConsoleAppender()
+        appender = new Log4J.appender.ConsoleAppender()
         @log.addAppender( appender )
         assertEquals("appender should have been added", 1, @log.appenders.length )
         @log.addAppender( appender )
         assertEquals("same appender shouldn't be duplicated", 1, @log.appenders.length )
 
     testSetAppenders: ->
-        appenders = [new log.appender.ConsoleAppender()]
+        appenders = [new Log4J.appender.ConsoleAppender()]
         @log.setAppenders([])
         assertEquals(0, @log.appenders.length )
         @log.setAppenders( appenders )
@@ -25,16 +32,20 @@ TestCase("LoggerTest", {
 
 
     testDEBUG: ->
-        @log.setLevel( log.Level.DEBUG )
+        @log.setLevel( Log4J.Level.DEBUG )
         assertTrue( @log.isDebugEnabled() )
         assertTrue( @log.isInfoEnabled() )
         assertTrue( @log.isWarnEnabled() )
         assertTrue( @log.isErrorEnabled() )
         assertTrue( @log.isFatalEnabled() )
 
+        @bufferedAppender.events = []
+        @log.debug( "debug msg")
+        assertEquals( 1, @bufferedAppender.events.length )
+        assertEquals( "debug msg", @bufferedAppender.events[0].message )
 
     testINFO: ->
-        @log.setLevel( log.Level.INFO )
+        @log.setLevel( Log4J.Level.INFO )
         assertFalse( @log.isDebugEnabled() )
         assertTrue( @log.isInfoEnabled() )
         assertTrue( @log.isWarnEnabled() )
@@ -42,7 +53,7 @@ TestCase("LoggerTest", {
         assertTrue( @log.isFatalEnabled() )
 
     testWARN: ->
-        @log.setLevel( log.Level.WARN )
+        @log.setLevel( Log4J.Level.WARN )
         assertFalse( @log.isDebugEnabled() )
         assertFalse( @log.isInfoEnabled() )
         assertTrue( @log.isWarnEnabled() )
@@ -50,7 +61,7 @@ TestCase("LoggerTest", {
         assertTrue( @log.isFatalEnabled() )
 
     testERROR: ->
-        @log.setLevel( log.Level.ERROR )
+        @log.setLevel( Log4J.Level.ERROR )
         assertFalse( @log.isDebugEnabled() )
         assertFalse( @log.isInfoEnabled() )
         assertFalse( @log.isWarnEnabled() )
@@ -58,7 +69,7 @@ TestCase("LoggerTest", {
         assertTrue( @log.isFatalEnabled() )
 
     testFATAL: ->
-        @log.setLevel( log.Level.FATAL )
+        @log.setLevel( Log4J.Level.FATAL )
         assertFalse( @log.isDebugEnabled() )
         assertFalse( @log.isInfoEnabled() )
         assertFalse( @log.isWarnEnabled() )

@@ -1,19 +1,19 @@
 TestCase("LogTest", {
    testGetLogger: ->
-    l = Log.getLogger("a")
-    assertInstanceOf( log.impl.Logger, l)
+    l = Log4J.Log.getLogger("a")
+    assertInstanceOf( Log4J.impl.Logger, l)
 
    testGetLoggerReturnsDifferentInstance: ->
-    l = Log.getLogger("a")
+    l = Log4J.Log.getLogger("a")
     assertNotNull(l)
-    l2 = Log.getLogger("B")
+    l2 = Log4J.Log.getLogger("B")
     assertNotNull(l2)
     assertNotSame(l, l2)
 
    testGetLoggerReturnsSameInstanceTwice: ->
-    l = Log.getLogger("a")
+    l = Log4J.Log.getLogger("a")
     assertNotNull(l)
-    l2 = Log.getLogger("a")
+    l2 = Log4J.Log.getLogger("a")
     assertNotNull(l2)
     assertSame(l, l2)
 })

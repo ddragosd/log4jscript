@@ -1,10 +1,10 @@
-namespace "log.impl"
+namespace "Log4J.impl"
 
-class log.impl.LoggingEvent
+class Log4J.impl.LoggingEvent
     categoryName: null
-    level : null # instance of log.Level
+    level : null # instance of Log4J.Level
     message: null # String
     exception: null
-    logger : null # instance of log.impl.Logger
+    logger : null # instance of Log4J.impl.Logger
 
     constructor: (@categoryName, @level, @message, @exception, @logger ) ->

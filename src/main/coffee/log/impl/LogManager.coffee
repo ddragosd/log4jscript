@@ -1,7 +1,7 @@
-namespace "log.impl"
+namespace "Log4J.impl"
 
-class log.impl.LogManager
+class Log4J.impl.LogManager
    loggerMap: {}
    getLogger : ( name ) ->
-      @loggerMap[name] = @loggerMap[name]or new log.impl.Logger(name)
+      @loggerMap[name] = @loggerMap[name]or new Log4J.impl.Logger(name)
       return @loggerMap[name]

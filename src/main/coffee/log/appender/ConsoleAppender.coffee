@@ -1,6 +1,6 @@
-namespace "log.appender"
+namespace "Log4J.appender"
 
-class log.appender.ConsoleAppender extends log.appender.AbstractAppender
+class Log4J.appender.ConsoleAppender extends Log4J.appender.AbstractAppender
     constructor: ( layout ) ->
         super(layout)
 

@@ -1,6 +1,6 @@
-namespace "log.appender"
+namespace "Log4J.appender"
 
-class log.appender.AjaxAppender extends log.appender.AbstractAppender
+class Log4J.appender.AjaxAppender extends Log4J.appender.AbstractAppender
     endpoint: null
     constructor: ( layout, @endpoint ) ->
         super(layout)

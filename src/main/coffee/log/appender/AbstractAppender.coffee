@@ -1,6 +1,6 @@
-namespace "log.appender"
+namespace "Log4J.appender"
 
-class log.appender.AbstractAppender
+class Log4J.appender.AbstractAppender
     layout : null
     constructor: ( @layout ) ->
 

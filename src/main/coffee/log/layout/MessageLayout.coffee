@@ -1,4 +1,4 @@
-namespace "log.layout"
+namespace "Log4J.layout"
 
 ###
    MessageLayout consists of the log message itself. For example,
@@ -7,6 +7,6 @@ namespace "log.layout"
            Hello world
    </pre>
  ###
-class log.layout.MessageLayout extends log.layout.AbstractLayout
+class Log4J.layout.MessageLayout extends Log4J.layout.AbstractLayout
     format: (loggingEvent) ->
         return "#{loggingEvent.message}"

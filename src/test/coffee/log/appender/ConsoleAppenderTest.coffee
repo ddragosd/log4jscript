@@ -1,7 +1,7 @@
 TestCase("ConsoleAppenderTest", {
     testDoAppend: ->
-        appender = new log.appender.ConsoleAppender( new log.layout.MessageLayout() )
-        loggingEvent = new log.impl.LoggingEvent( "a", log.Level.DEBUG, "hello world", {ex:"123"}, {obj:"abc"} )
+        appender = new Log4J.appender.ConsoleAppender( new Log4J.layout.MessageLayout() )
+        loggingEvent = new Log4J.impl.LoggingEvent( "a", Log4J.Level.DEBUG, "hello world", {ex:"123"}, {obj:"abc"} )
 
         origConsoleLog = window.console.log
 
