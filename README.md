@@ -17,9 +17,9 @@ Log4JScript is licensed under [Apache License 2.0](http://www.apache.org/license
     log.setLevel( Log4J.Level.TRACE );
     log.addAppender( new Log4J.appender.ConsoleAppender( new Log4J.layout.MessageLayout() ) );
 
-    logger.debug("Hello World !");
-    logger.warn("Save the planet !");
-    logger.error("Use an electric car.", new Error("don't use another car"));
+    log.debug("Hello World !");
+    log.warn("Save the planet !");
+    log.error("Use an electric car.", new Error("don't use another car"));
     
 
 ## Loggers, Appenders, and Layouts
@@ -29,23 +29,23 @@ There are 3 main components of Log4JScript, the same as the ones in Log4J: `logg
 The `Logger` class is the one which you'll be using to ... log the information, ofcourse.
 Loggers can be assigned logging levels:
 
-* `log.Level.DEBUG`
-* `log.Level.INFO`
-* `log.Level.WARN`
-* `log.Level.ERROR`
-* `log.Level.FATAL`
+* `Log4J.Level.DEBUG`
+* `Log4J.Level.INFO`
+* `Log4J.Level.WARN`
+* `Log4J.Level.ERROR`
+* `Log4J.Level.FATAL`
 
 The `Appender` is an output destination. Log4JScript implements 2 Appenders:
 
-* `log.appender.ConsoleAppender` - writing the ouput into Browser's Console. Basically it's calling `window.console.log() / info() / debug() / warn()`
-* `log.appender.AjaxAppender` - sending to a given endpoint a formData with the follosing properties: `formatterLogMessage`, `categoryName`, `level`, `message`, `exception`.
+* `Log4J.appender.ConsoleAppender` - writing the ouput into Browser's Console. Basically it's calling `window.console.log() / info() / debug() / warn()`
+* `Log4J.appender.AjaxAppender` - sending to a given endpoint a formData with the follosing properties: `formatterLogMessage`, `categoryName`, `level`, `message`, `exception`.
 
-The `Layout` it responsible to create a log line from a given log message. 
+The `Layout` is responsible to create a log line from a given log message. 
 
 There are 2 layout classes implemented at the moment, and you can also add your own:
 
-* `SimpleLayout` - writing lines like `DEBUG - Hello World!`
-* `MessageLayout` - writing only the message itself `Hello World!`
+* `Log4J.layout.SimpleLayout` - writing lines like `DEBUG - Hello World!`
+* `Log4J.layout.MessageLayout` - writing only the message itself `Hello World!`
 
 ## Advantages
 
